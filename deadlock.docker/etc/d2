@@ -1,0 +1,11 @@
+# docker image build --tag local/deadlock:latest --file d2 .
+
+FROM local:wfly20
+
+USER jboss
+
+ENV JBOSS_HOME /opt/jboss/wildfly
+
+COPY temp/deadlock.ear-1.0-SNAPSHOT.ear ${JBOSS_HOME}/standalone/deployments
+
+EXPOSE 9990
